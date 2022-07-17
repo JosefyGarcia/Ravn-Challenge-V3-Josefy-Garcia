@@ -1,7 +1,8 @@
-package com.example.mystarwarsapplication
+package com.example.mystarwarsapplication.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.mystarwarsapplication.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

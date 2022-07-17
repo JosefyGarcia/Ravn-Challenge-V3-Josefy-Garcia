@@ -14,7 +14,7 @@
         android:theme="@style/Theme.MyStarWarsApplication"
         tools:targetApi="31">
         <activity
-            android:name="com.example.mystarwarsapplication.MainActivity"
+            android:name="com.example.mystarwarsapplication.ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

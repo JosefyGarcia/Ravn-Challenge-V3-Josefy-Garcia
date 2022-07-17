@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="generic_margin">16dp</dimen>
+    <dimen name="label_title_text_size">17sp</dimen>
+    <dimen name="label_subtitles_text_size">14sp</dimen>
+</resources>

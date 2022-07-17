@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">My Star Wars Application</string>
+    <string name="app_name">People of Star Wars</string>
+    <string name="test_text_title_item">Luke Skywalker</string>
+    <string name="test_text_subtitle_item">Human from Tatooine</string>
 </resources>
