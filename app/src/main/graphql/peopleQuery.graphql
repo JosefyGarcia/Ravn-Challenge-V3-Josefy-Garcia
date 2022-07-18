@@ -1,0 +1,38 @@
+query getAllPeople($cursor:String) {
+    allPeople(first:5, after:$cursor) {
+        pageInfo {
+            hasNextPage
+            startCursor
+            hasPreviousPage
+            endCursor
+        }
+        people {
+            id
+            name
+            species {
+                name
+                homeworld {
+                    name
+                }
+            }
+        }
+    }
+}
+
+query getPersonInfo($id:ID){
+    person(id: $id) {
+        id
+        name
+        eyeColor
+        hairColor
+        skinColor
+        birthYear
+        vehicleConnection{
+            edges{
+                node{
+                    name
+                }
+            }
+        }
+    }
+}
