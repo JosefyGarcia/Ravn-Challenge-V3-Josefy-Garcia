@@ -1,6 +1,5 @@
 package com.example.mystarwarsapplication.network
 
-import android.os.Looper
 import com.apollographql.apollo3.ApolloClient
 
 class StarWarsApi {

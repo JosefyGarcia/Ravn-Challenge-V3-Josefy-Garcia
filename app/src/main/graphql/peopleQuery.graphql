@@ -6,12 +6,14 @@ query getAllPeople($cursor:String) {
             hasPreviousPage
             endCursor
         }
-        people {
-            id
-            name
-            species {
+        edges{
+            node{
+                id
                 name
-                homeworld {
+                species{
+                    name
+                }
+                homeworld{
                     name
                 }
             }

@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/lbl_title_item"
+        android:id="@+id/lblTitleItem"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/generic_margin"
@@ -19,15 +19,15 @@
         tools:text="@string/test_text_title_item" />
 
     <TextView
-        android:id="@+id/lbl_subtitle_item"
+        android:id="@+id/lblSubtitleItem"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/generic_margin"
         android:textAppearance="@style/labelSubTitleTextAppearance"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/lbl_title_item"
-        app:layout_constraintStart_toStartOf="@+id/lbl_title_item"
-        app:layout_constraintTop_toBottomOf="@+id/lbl_title_item"
+        app:layout_constraintEnd_toEndOf="@+id/lblTitleItem"
+        app:layout_constraintStart_toStartOf="@+id/lblTitleItem"
+        app:layout_constraintTop_toBottomOf="@+id/lblTitleItem"
         tools:text="@string/test_text_subtitle_item" />
 
     <ImageView
@@ -35,8 +35,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/generic_margin"
-        app:layout_constraintBottom_toBottomOf="@+id/lbl_subtitle_item"
+        app:layout_constraintBottom_toBottomOf="@+id/lblSubtitleItem"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/lbl_title_item"
+        app:layout_constraintTop_toTopOf="@+id/lblTitleItem"
         app:srcCompat="@drawable/right_arrow" />
 </androidx.constraintlayout.widget.ConstraintLayout>

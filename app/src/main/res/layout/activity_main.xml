@@ -1,16 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<data>
+    <variable
+        name="viewModel"
+        type="com.example.mystarwarsapplication.ui.viewmodel.PeopleViewModel" />
+    <import type="android.view.View" />
+</data>
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/lblError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/generic_margin"
+        android:text="Failed To Load Data"
+        android:textAppearance="@style/labelErrorTextAppearance"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:indicatorColor="#DADADA"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/recyclerview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:visibility="visible"
         tools:listitem="@layout/item_people" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayoutDetail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/lblHeaderDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/generic_margin"
+            android:layout_marginTop="@dimen/header_top_margin"
+            android:text="@string/main_activity_header"
+            android:textAppearance="@style/labelTitleTextAppearance"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lblEyeColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/divider_top_margin"
+            android:text="@string/main_activity_eye"
+            android:textAppearance="@style/labelTitleTextDetailsAppearance"
+            app:layout_constraintStart_toStartOf="@+id/lblHeaderDetails"
+            app:layout_constraintTop_toBottomOf="@+id/lblHeaderDetails" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/dividerEyeColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/generic_margin"
+            android:layout_marginTop="@dimen/divider_margin"
+            android:layout_marginRight="@dimen/generic_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/lblEyeColor"
+            app:layout_constraintTop_toBottomOf="@id/lblEyeColor" />
+
+        <TextView
+            android:id="@+id/eyeColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/generic_margin"
+            android:textAppearance="@style/labelTitleTextAppearance"
+            app:layout_constraintBottom_toBottomOf="@+id/lblEyeColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/lblEyeColor"
+            tools:text="Blue" />
+
+        <TextView
+            android:id="@+id/lblHairColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/divider_top_margin"
+            android:text="@string/main_activity_hair"
+            android:textAppearance="@style/labelTitleTextDetailsAppearance"
+            app:layout_constraintStart_toStartOf="@+id/lblEyeColor"
+            app:layout_constraintTop_toBottomOf="@+id/dividerEyeColor" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/dividerHairColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/generic_margin"
+            android:layout_marginTop="@dimen/divider_margin"
+            android:layout_marginRight="@dimen/generic_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/hairColor"
+            app:layout_constraintTop_toBottomOf="@id/hairColor" />
+
+        <TextView
+            android:id="@+id/hairColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/generic_margin"
+            android:textAppearance="@style/labelTitleTextAppearance"
+            app:layout_constraintBottom_toBottomOf="@+id/lblHairColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/lblHairColor"
+            tools:text="Blue" />
+
+        <TextView
+            android:id="@+id/lblSkinColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/divider_top_margin"
+            android:text="@string/main_activity_skin"
+            android:textAppearance="@style/labelTitleTextDetailsAppearance"
+            app:layout_constraintStart_toStartOf="@+id/lblEyeColor"
+            app:layout_constraintTop_toBottomOf="@+id/dividerHairColor" />
+
+        <TextView
+            android:id="@+id/lblBirthYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/divider_top_margin"
+            android:text="@string/main_activity_birth"
+            android:textAppearance="@style/labelTitleTextDetailsAppearance"
+            app:layout_constraintStart_toStartOf="@+id/lblEyeColor"
+            app:layout_constraintTop_toBottomOf="@+id/dividerSkinColor" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/dividerSkinColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/generic_margin"
+            android:layout_marginTop="@dimen/divider_margin"
+            android:layout_marginRight="@dimen/generic_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/skinColor"
+            app:layout_constraintTop_toBottomOf="@id/skinColor" />
+
+        <TextView
+            android:id="@+id/skinColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/generic_margin"
+            android:textAppearance="@style/labelTitleTextAppearance"
+            app:layout_constraintBottom_toBottomOf="@+id/lblSkinColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/lblSkinColor"
+            tools:text="Blue" />
+
+        <TextView
+            android:id="@+id/birthYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/generic_margin"
+            android:textAppearance="@style/labelTitleTextAppearance"
+            app:layout_constraintBottom_toBottomOf="@+id/lblBirthYear"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/lblBirthYear"
+            app:layout_constraintVertical_bias="1.0"
+            tools:text="Blue" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/dividerSkinColor2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/generic_margin"
+            android:layout_marginTop="@dimen/divider_margin"
+            android:layout_marginRight="@dimen/generic_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/skinColor"
+            app:layout_constraintTop_toBottomOf="@+id/birthYear" />
+
+        <TextView
+            android:id="@+id/lblHeaderVehicles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/header_top_margin"
+            android:text="Vehicles"
+            android:textAppearance="@style/labelTitleTextAppearance"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dividerSkinColor2" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerviewVehicles"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/generic_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblHeaderVehicles" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
