@@ -17,6 +17,17 @@ import kotlinx.coroutines.launch
 @HiltViewModel
 class PeopleViewModel @Inject constructor(
     private val getPersonDetails: GetPersonDetails, private val getPeoplePaging: GetPeoplePaging) : ViewModel() {
+
+    companion object {
+        const val SH_NAME = "personName"
+        const val SH_BIRTH = "personBirth"
+        const val SH_EYE = "personEye"
+        const val SH_SKIN = "personSkin"
+        const val SH_HAIR = "personHair"
+        const val SH_VEHICLES = "personVehicles"
+        const val SHARE_PRE_NAME = "shpFavorite"
+
+    }
     val pager = Pager(
         PagingConfig(pageSize = 5)
     ) {
@@ -36,3 +47,4 @@ class PeopleViewModel @Inject constructor(
         }
     }
 }
+

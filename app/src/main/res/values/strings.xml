@@ -8,4 +8,6 @@
     <string name="main_activity_skin">Skin Color</string>
     <string name="main_activity_birth">Birth Year</string>
     <string name="main_activity_vehicles">Vehicles</string>
+    <string name="title_activity_favorite">Favorite</string>
+
 </resources>
